@@ -1,0 +1,283 @@
+{
+    "employees": [
+        {
+            "id": 37109,
+            "name": "Randa Kardy",
+            "created_at": "2015-04-03T19:44:10Z",
+            "updated_at": "2018-10-26T13:57:18Z",
+            "difference_question": "I have over 20 years of experience cutting and styling hair. I can't wait to help you look your best!",
+            "training_question": "Seattle Institute of Cosmetology",
+            "errors": {},
+            "avatar": "https://s3.amazonaws.com/mytime_prod/attachments/3770/thumb/female3.jpg?2015"
+        },
+        {
+            "id": 37112,
+            "name": "diana chun",
+            "created_at": "2015-04-03T19:46:48Z",
+            "updated_at": "2018-10-04T20:31:06Z",
+            "difference_question": "Working with hair is my passion! I love the challenge of helping a client come up with a new look.",
+            "training_question": "Anchorage Institute of Cosmetology.",
+            "errors": {},
+            "avatar": "https://s3.amazonaws.com/mytime_prod/attachments/3768/thumb/female2.jpg?2015"
+        },
+        {
+            "id": 83159,
+            "name": "Ethan Anderson",
+            "created_at": "2015-11-16T19:01:27Z",
+            "updated_at": "2018-10-04T20:31:06Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {},
+            "avatar": "https://s3.amazonaws.com/mytime_prod/attachments/5513/thumb/download.jpeg?2016"
+        },
+        {
+            "id": 83491,
+            "name": "Donna Paulsen",
+            "created_at": "2015-11-20T05:52:56Z",
+            "updated_at": "2018-10-04T20:31:06Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {},
+            "avatar": "https://s3.amazonaws.com/mytime_prod/attachments/5515/thumb/donna.jpg?2016"
+        },
+        {
+            "id": 90192,
+            "name": "Robert G.",
+            "created_at": "2016-02-22T08:24:41Z",
+            "updated_at": "2018-12-11T02:59:20Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {},
+            "avatar": "https://s3.amazonaws.com/mytime_prod/attachments/5518/thumb/robertg.jpg?2016"
+        },
+        {
+            "id": 92095,
+            "name": "Jane Smith",
+            "created_at": "2016-03-17T02:56:31Z",
+            "updated_at": "2018-10-04T20:31:06Z",
+            "difference_question": "",
+            "training_question": "",
+            "errors": {},
+            "avatar": "https://s3.amazonaws.com/mytime_prod/attachments/5514/thumb/lisa.jpg?2016"
+        },
+        {
+            "id": 92096,
+            "name": "Jacob Glover",
+            "created_at": "2016-03-17T02:59:39Z",
+            "updated_at": "2018-10-04T20:31:06Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {},
+            "avatar": "https://s3.amazonaws.com/mytime_prod/attachments/5517/thumb/jonah.jpg?2016"
+        },
+        {
+            "id": 92991,
+            "name": "Cristina Dominguez",
+            "created_at": "2016-03-29T14:55:33Z",
+            "updated_at": "2018-10-04T20:31:06Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {}
+        },
+        {
+            "id": 97294,
+            "name": "Pie in the Sky",
+            "created_at": "2016-06-13T21:51:20Z",
+            "updated_at": "2018-10-04T20:31:07Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {}
+        },
+        {
+            "id": 97712,
+            "name": "Bittlingmeyer Bill",
+            "created_at": "2016-06-22T16:43:33Z",
+            "updated_at": "2018-10-04T20:31:07Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {}
+        },
+        {
+            "id": 97715,
+            "name": "Liz Serna",
+            "created_at": "2016-06-22T16:43:37Z",
+            "updated_at": "2018-10-04T20:31:07Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {}
+        },
+        {
+            "id": 97719,
+            "name": "Amastoros .",
+            "created_at": "2016-06-22T16:43:39Z",
+            "updated_at": "2018-10-04T20:31:07Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {}
+        },
+        {
+            "id": 97721,
+            "name": "Carlos Vera",
+            "created_at": "2016-06-22T16:43:40Z",
+            "updated_at": "2018-10-04T20:31:07Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {}
+        },
+        {
+            "id": 97722,
+            "name": "Carlos Zelaya",
+            "created_at": "2016-06-22T16:43:41Z",
+            "updated_at": "2018-10-04T20:31:07Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {}
+        },
+        {
+            "id": 97723,
+            "name": "Demi Terzakos",
+            "created_at": "2016-06-22T16:43:41Z",
+            "updated_at": "2018-10-04T20:31:07Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {}
+        },
+        {
+            "id": 97724,
+            "name": "Janel Li",
+            "created_at": "2016-06-22T16:43:42Z",
+            "updated_at": "2018-10-04T20:31:07Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {}
+        },
+        {
+            "id": 97725,
+            "name": "Nicole Desimone",
+            "created_at": "2016-06-22T16:43:42Z",
+            "updated_at": "2018-10-04T20:31:07Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {}
+        },
+        {
+            "id": 97726,
+            "name": "Patrica Spirou",
+            "created_at": "2016-06-22T16:43:43Z",
+            "updated_at": "2018-10-04T20:31:07Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {}
+        },
+        {
+            "id": 97727,
+            "name": "Penny Velentzas",
+            "created_at": "2016-06-22T16:43:43Z",
+            "updated_at": "2018-10-04T20:31:07Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {}
+        },
+        {
+            "id": 97729,
+            "name": "Veronica Ripson",
+            "created_at": "2016-06-22T16:43:45Z",
+            "updated_at": "2018-10-04T20:31:07Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {}
+        },
+        {
+            "id": 99654,
+            "name": "Fernando Bunn",
+            "created_at": "2016-07-28T18:14:22Z",
+            "updated_at": "2018-10-04T20:31:07Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {}
+        },
+        {
+            "id": 101387,
+            "name": "Leonard Chesca",
+            "created_at": "2016-08-29T12:11:06Z",
+            "updated_at": "2018-10-04T20:31:07Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {}
+        },
+        {
+            "id": 108110,
+            "name": "jefftest",
+            "created_at": "2016-12-20T21:30:37Z",
+            "updated_at": "2018-10-04T20:31:07Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {},
+            "avatar": "https://s3.amazonaws.com/mytime_prod/attachments/9102/thumb/Screen_Shot_2017-12-12_at_11.46.09.png?2017"
+        },
+        {
+            "id": 112971,
+            "name": "Google Reserve Employee",
+            "created_at": "2017-05-10T20:57:37Z",
+            "updated_at": "2018-10-04T20:31:07Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {}
+        },
+        {
+            "id": 166865,
+            "name": "frank",
+            "created_at": "2018-10-15T22:58:24Z",
+            "updated_at": "2018-10-15T23:04:25Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {}
+        },
+        {
+            "id": 166875,
+            "name": "generic",
+            "created_at": "2018-10-15T23:22:40Z",
+            "updated_at": "2018-10-16T03:12:55Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {}
+        },
+        {
+            "id": 166953,
+            "name": "Awesome Stylist 15 W Lomen Ave",
+            "created_at": "2018-10-17T19:46:42Z",
+            "updated_at": "2018-10-17T19:46:42Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {}
+        },
+        {
+            "id": 166967,
+            "name": "New Stylist 15 W Lomen Ave",
+            "created_at": "2018-10-17T20:43:44Z",
+            "updated_at": "2018-10-17T20:43:45Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {}
+        },
+        {
+            "id": 166979,
+            "name": "Cool Stylist 15 W Lomen Ave",
+            "created_at": "2018-10-17T20:51:21Z",
+            "updated_at": "2018-10-17T20:51:21Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {}
+        },
+        {
+            "id": 166991,
+            "name": "Rad Stylist 15 W Lomen Ave",
+            "created_at": "2018-10-17T20:57:44Z",
+            "updated_at": "2018-10-17T20:57:45Z",
+            "difference_question": null,
+            "training_question": null,
+            "errors": {}
+        }
+    ],
+    "errors": {}
+}

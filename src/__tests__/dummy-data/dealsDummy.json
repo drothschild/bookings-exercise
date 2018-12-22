@@ -1,0 +1,796 @@
+[
+    {
+        "id": 91550,
+        "sort_order": 0,
+        "paused": false,
+        "errors": {},
+        "service": {
+            "id": 29,
+            "name": "Hair Coloring",
+            "slug": "hair-coloring",
+            "seo_name": "Hair Coloring",
+            "errors": {}
+        },
+        "variations": [
+            {
+                "id": 206613,
+                "deal_id": 91550,
+                "name": "Full Highlights",
+                "sort_order": 0,
+                "created_at": "2015-04-03T19:51:25Z",
+                "price_varies": false,
+                "updated_at": "2018-12-17T19:07:24Z",
+                "description": "• Full highlights\n• Shampoo and condition\n• Includes blow dry",
+                "add_on": false,
+                "external_id": "1",
+                "duration": 120,
+                "errors": {},
+                "modifier_lookup_values": [
+                    {
+                        "id": 253,
+                        "value": "150",
+                        "position": 0,
+                        "vanity": "150",
+                        "slug": null,
+                        "errors": {}
+                    },
+                    {
+                        "id": 456,
+                        "value": "Any",
+                        "position": 1,
+                        "vanity": "",
+                        "slug": null,
+                        "errors": {}
+                    },
+                    {
+                        "id": 2323,
+                        "value": "Not Included",
+                        "position": 2,
+                        "vanity": "Without Trim",
+                        "slug": null,
+                        "errors": {}
+                    },
+                    {
+                        "id": 447,
+                        "value": "Full Highlights",
+                        "position": 2,
+                        "vanity": "Full Highlights",
+                        "slug": "full-highlights-hair-coloring",
+                        "errors": {}
+                    },
+                    {
+                        "id": 453,
+                        "value": "Female",
+                        "position": 2,
+                        "vanity": "Women's",
+                        "slug": null,
+                        "errors": {}
+                    }
+                ],
+                "add_on_variations": [],
+                "parent_variations": [],
+                "initial_consultation": null,
+                "followup": null
+            },
+            {
+                "id": 886413,
+                "deal_id": 91550,
+                "name": "Partial Highlights",
+                "sort_order": 1,
+                "created_at": "2015-11-03T20:46:10Z",
+                "price_varies": false,
+                "updated_at": "2016-06-21T17:32:58Z",
+                "description": null,
+                "add_on": false,
+                "external_id": null,
+                "duration": 120,
+                "errors": {},
+                "modifier_lookup_values": [],
+                "add_on_variations": [],
+                "parent_variations": [],
+                "initial_consultation": null,
+                "followup": null
+            },
+            {
+                "id": 886418,
+                "deal_id": 91550,
+                "name": "partial highlight roots",
+                "sort_order": 3,
+                "created_at": "2015-11-03T20:46:42Z",
+                "price_varies": false,
+                "updated_at": "2018-11-28T17:57:32Z",
+                "description": null,
+                "add_on": false,
+                "external_id": null,
+                "duration": 120,
+                "errors": {},
+                "modifier_lookup_values": [],
+                "add_on_variations": [],
+                "parent_variations": [],
+                "initial_consultation": null,
+                "followup": null
+            },
+            {
+                "id": 1135250,
+                "deal_id": 91550,
+                "name": "Ombre",
+                "sort_order": 2,
+                "created_at": "2016-02-05T19:51:19Z",
+                "price_varies": false,
+                "updated_at": "2018-11-29T22:35:51Z",
+                "description": null,
+                "add_on": false,
+                "external_id": null,
+                "duration": 135,
+                "errors": {},
+                "modifier_lookup_values": [
+                    {
+                        "id": 1230,
+                        "value": "Ombre",
+                        "position": 3,
+                        "vanity": "Ombre",
+                        "slug": "ombre-hair-coloring",
+                        "errors": {}
+                    },
+                    {
+                        "id": 221,
+                        "value": "120",
+                        "position": 30,
+                        "vanity": "120",
+                        "slug": null,
+                        "errors": {}
+                    }
+                ],
+                "add_on_variations": [],
+                "parent_variations": [],
+                "initial_consultation": null,
+                "followup": null
+            },
+            {
+                "id": 1763689,
+                "deal_id": 91550,
+                "name": "Balayage",
+                "sort_order": 4,
+                "created_at": "2016-06-22T16:44:57Z",
+                "price_varies": false,
+                "updated_at": "2017-02-07T14:23:17Z",
+                "description": null,
+                "add_on": false,
+                "external_id": null,
+                "duration": 60,
+                "errors": {},
+                "modifier_lookup_values": [
+                    {
+                        "id": 157,
+                        "value": "60",
+                        "position": 90,
+                        "vanity": "60",
+                        "slug": null,
+                        "errors": {}
+                    }
+                ],
+                "add_on_variations": [],
+                "parent_variations": [],
+                "initial_consultation": null,
+                "followup": null
+            },
+            {
+                "id": 1763690,
+                "deal_id": 91550,
+                "name": "Low Lights",
+                "sort_order": 5,
+                "created_at": "2016-06-22T16:44:57Z",
+                "price_varies": false,
+                "updated_at": "2016-11-15T23:03:34Z",
+                "description": null,
+                "add_on": false,
+                "external_id": null,
+                "duration": 30,
+                "errors": {},
+                "modifier_lookup_values": [
+                    {
+                        "id": 125,
+                        "value": "30",
+                        "position": 120,
+                        "vanity": "30",
+                        "slug": null,
+                        "errors": {}
+                    }
+                ],
+                "add_on_variations": [],
+                "parent_variations": [],
+                "initial_consultation": null,
+                "followup": null
+            },
+            {
+                "id": 1763691,
+                "deal_id": 91550,
+                "name": "Single Process Color",
+                "sort_order": 6,
+                "created_at": "2016-06-22T16:44:57Z",
+                "price_varies": false,
+                "updated_at": "2018-11-28T17:56:53Z",
+                "description": null,
+                "add_on": false,
+                "external_id": null,
+                "duration": 90,
+                "errors": {},
+                "modifier_lookup_values": [
+                    {
+                        "id": 450,
+                        "value": "Single Process Color",
+                        "position": 6,
+                        "vanity": "Single Process Color",
+                        "slug": "single-process-color-hair-coloring",
+                        "errors": {}
+                    },
+                    {
+                        "id": 157,
+                        "value": "60",
+                        "position": 90,
+                        "vanity": "60",
+                        "slug": null,
+                        "errors": {}
+                    }
+                ],
+                "add_on_variations": [],
+                "parent_variations": [],
+                "initial_consultation": null,
+                "followup": null
+            },
+            {
+                "id": 1763692,
+                "deal_id": 91550,
+                "name": "Partial Highlight",
+                "sort_order": 7,
+                "created_at": "2016-06-22T16:44:57Z",
+                "price_varies": false,
+                "updated_at": "2018-03-10T00:49:06Z",
+                "description": null,
+                "add_on": false,
+                "external_id": null,
+                "duration": 120,
+                "errors": {},
+                "modifier_lookup_values": [
+                    {
+                        "id": 448,
+                        "value": "Partial Highlights",
+                        "position": 4,
+                        "vanity": "Partial Highlights",
+                        "slug": "partial-highlights-hair-coloring",
+                        "errors": {}
+                    },
+                    {
+                        "id": 221,
+                        "value": "120",
+                        "position": 30,
+                        "vanity": "120",
+                        "slug": null,
+                        "errors": {}
+                    }
+                ],
+                "add_on_variations": [],
+                "parent_variations": [],
+                "initial_consultation": null,
+                "followup": null
+            },
+            {
+                "id": 9237928,
+                "deal_id": 91550,
+                "name": "Shana",
+                "sort_order": 12,
+                "created_at": "2018-03-10T00:55:39Z",
+                "price_varies": false,
+                "updated_at": "2018-03-10T00:55:39Z",
+                "description": null,
+                "add_on": false,
+                "external_id": null,
+                "duration": 30,
+                "errors": {},
+                "modifier_lookup_values": [],
+                "add_on_variations": [],
+                "parent_variations": [],
+                "initial_consultation": null,
+                "followup": null
+            }
+        ],
+        "is_addon": false,
+        "variations_count": 9
+    },
+    {
+        "id": 91552,
+        "sort_order": 4,
+        "paused": false,
+        "errors": {},
+        "service": {
+            "id": 20,
+            "name": "Haircut",
+            "slug": "haircut",
+            "seo_name": "Haircut",
+            "errors": {}
+        },
+        "variations": [
+            {
+                "id": 206617,
+                "deal_id": 91552,
+                "name": "Women's Haircut",
+                "sort_order": 1,
+                "created_at": "2015-04-03T19:53:16Z",
+                "price_varies": null,
+                "updated_at": "2016-06-21T17:33:22Z",
+                "description": "\n• Cut, style and deep conditioning treatment\n• Hair & Scalp Treatment\n• Blowout style",
+                "add_on": false,
+                "external_id": null,
+                "duration": 60,
+                "errors": {},
+                "modifier_lookup_values": [
+                    {
+                        "id": 482,
+                        "value": "Any",
+                        "position": 1,
+                        "vanity": "",
+                        "slug": null,
+                        "errors": {}
+                    },
+                    {
+                        "id": 414,
+                        "value": "Without Styling",
+                        "position": 2,
+                        "vanity": "without Styling",
+                        "slug": null,
+                        "errors": {}
+                    },
+                    {
+                        "id": 411,
+                        "value": "Women's",
+                        "position": 4,
+                        "vanity": "Women's Haircut",
+                        "slug": "womens-haircut",
+                        "errors": {}
+                    },
+                    {
+                        "id": 148,
+                        "value": "60",
+                        "position": 90,
+                        "vanity": "60",
+                        "slug": null,
+                        "errors": {}
+                    }
+                ],
+                "add_on_variations": [],
+                "parent_variations": [],
+                "initial_consultation": null,
+                "followup": null
+            },
+            {
+                "id": 209701,
+                "deal_id": 91552,
+                "name": "Men's Haircut",
+                "sort_order": 0,
+                "created_at": "2015-04-06T19:03:09Z",
+                "price_varies": true,
+                "updated_at": "2018-03-10T00:36:22Z",
+                "description": null,
+                "add_on": false,
+                "external_id": null,
+                "duration": 30,
+                "errors": {},
+                "modifier_lookup_values": [
+                    {
+                        "id": 410,
+                        "value": "Men's",
+                        "position": 3,
+                        "vanity": "Men's Haircut",
+                        "slug": "mens-haircut",
+                        "errors": {}
+                    },
+                    {
+                        "id": 116,
+                        "value": "30",
+                        "position": 120,
+                        "vanity": "30",
+                        "slug": null,
+                        "errors": {}
+                    }
+                ],
+                "add_on_variations": [],
+                "parent_variations": [],
+                "initial_consultation": null,
+                "followup": null
+            },
+            {
+                "id": 677557,
+                "deal_id": 91552,
+                "name": "Children's Haircut",
+                "sort_order": 2,
+                "created_at": "2015-08-21T23:15:56Z",
+                "price_varies": false,
+                "updated_at": "2016-06-21T17:33:23Z",
+                "description": "\n• Play area with children's toys\n• Gentle and patient staff\n• Quick and convenient",
+                "add_on": false,
+                "external_id": null,
+                "duration": 50,
+                "errors": {},
+                "modifier_lookup_values": [
+                    {
+                        "id": 482,
+                        "value": "Any",
+                        "position": 1,
+                        "vanity": "",
+                        "slug": null,
+                        "errors": {}
+                    },
+                    {
+                        "id": 409,
+                        "value": "Children's",
+                        "position": 2,
+                        "vanity": "Children's Haircut",
+                        "slug": "kids-haircut",
+                        "errors": {}
+                    },
+                    {
+                        "id": 414,
+                        "value": "Without Styling",
+                        "position": 2,
+                        "vanity": "without Styling",
+                        "slug": null,
+                        "errors": {}
+                    },
+                    {
+                        "id": 116,
+                        "value": "30",
+                        "position": 120,
+                        "vanity": "30",
+                        "slug": null,
+                        "errors": {}
+                    }
+                ],
+                "add_on_variations": [],
+                "parent_variations": [],
+                "initial_consultation": null,
+                "followup": null
+            },
+            {
+                "id": 1117840,
+                "deal_id": 91552,
+                "name": "Womens Deluxe Cut & Style",
+                "sort_order": 3,
+                "created_at": "2016-02-02T19:58:58Z",
+                "price_varies": false,
+                "updated_at": "2016-06-21T17:33:24Z",
+                "description": "Includes Cut and custom style.",
+                "add_on": false,
+                "external_id": null,
+                "duration": 120,
+                "errors": {},
+                "modifier_lookup_values": [],
+                "add_on_variations": [],
+                "parent_variations": [],
+                "initial_consultation": null,
+                "followup": null
+            },
+            {
+                "id": 4424366,
+                "deal_id": 91552,
+                "name": "Google Reserve Haircut",
+                "sort_order": 4,
+                "created_at": "2017-05-10T20:58:47Z",
+                "price_varies": false,
+                "updated_at": "2017-05-10T20:58:47Z",
+                "description": null,
+                "add_on": false,
+                "external_id": null,
+                "duration": 30,
+                "errors": {},
+                "modifier_lookup_values": [],
+                "add_on_variations": [],
+                "parent_variations": [],
+                "initial_consultation": null,
+                "followup": null
+            },
+            {
+                "id": 5949532,
+                "deal_id": 91552,
+                "name": "Split men's haircut",
+                "sort_order": 5,
+                "created_at": "2017-08-07T12:56:33Z",
+                "price_varies": false,
+                "updated_at": "2017-08-07T12:56:53Z",
+                "description": null,
+                "add_on": false,
+                "external_id": null,
+                "duration": 90,
+                "errors": {},
+                "modifier_lookup_values": [],
+                "add_on_variations": [],
+                "parent_variations": [],
+                "initial_consultation": null,
+                "followup": null
+            }
+        ],
+        "is_addon": false,
+        "variations_count": 6
+    },
+    {
+        "id": 180072,
+        "sort_order": 5,
+        "paused": false,
+        "errors": {},
+        "service": {
+            "id": 2649,
+            "name": "Nail Services",
+            "slug": "nail-services",
+            "seo_name": "Nail Services",
+            "errors": {}
+        },
+        "variations": [
+            {
+                "id": 1268425,
+                "deal_id": 180072,
+                "name": "Manicure",
+                "sort_order": 0,
+                "created_at": "2016-03-14T20:48:07Z",
+                "price_varies": false,
+                "updated_at": "2018-11-21T19:21:41Z",
+                "description": "Inclues.....",
+                "add_on": false,
+                "external_id": null,
+                "duration": 20,
+                "errors": {},
+                "modifier_lookup_values": [],
+                "add_on_variations": [],
+                "parent_variations": [],
+                "initial_consultation": null,
+                "followup": null
+            },
+            {
+                "id": 8899906,
+                "deal_id": 180072,
+                "name": "Variation A",
+                "sort_order": 1,
+                "created_at": "2018-02-14T19:42:50Z",
+                "price_varies": false,
+                "updated_at": "2018-02-14T19:42:50Z",
+                "description": null,
+                "add_on": false,
+                "external_id": null,
+                "duration": 60,
+                "errors": {},
+                "modifier_lookup_values": [],
+                "add_on_variations": [],
+                "parent_variations": [],
+                "initial_consultation": null,
+                "followup": null
+            },
+            {
+                "id": 8899911,
+                "deal_id": 180072,
+                "name": "Variation B",
+                "sort_order": 2,
+                "created_at": "2018-02-14T19:43:11Z",
+                "price_varies": false,
+                "updated_at": "2018-02-14T19:44:02Z",
+                "description": null,
+                "add_on": false,
+                "external_id": null,
+                "duration": 60,
+                "errors": {},
+                "modifier_lookup_values": [],
+                "add_on_variations": [],
+                "parent_variations": [],
+                "initial_consultation": null,
+                "followup": null
+            },
+            {
+                "id": 8899936,
+                "deal_id": 180072,
+                "name": "Variation C",
+                "sort_order": 3,
+                "created_at": "2018-02-14T19:44:22Z",
+                "price_varies": false,
+                "updated_at": "2018-02-14T19:44:22Z",
+                "description": null,
+                "add_on": false,
+                "external_id": null,
+                "duration": 60,
+                "errors": {},
+                "modifier_lookup_values": [],
+                "add_on_variations": [],
+                "parent_variations": [],
+                "initial_consultation": null,
+                "followup": null
+            },
+            {
+                "id": 8899997,
+                "deal_id": 180072,
+                "name": "Variation E",
+                "sort_order": 4,
+                "created_at": "2018-02-14T19:47:29Z",
+                "price_varies": false,
+                "updated_at": "2018-02-14T19:47:29Z",
+                "description": null,
+                "add_on": false,
+                "external_id": null,
+                "duration": 60,
+                "errors": {},
+                "modifier_lookup_values": [],
+                "add_on_variations": [],
+                "parent_variations": [],
+                "initial_consultation": null,
+                "followup": null
+            }
+        ],
+        "is_addon": false,
+        "variations_count": 5
+    },
+    {
+        "id": 230671,
+        "sort_order": 14,
+        "paused": false,
+        "errors": {},
+        "service": {
+            "id": 11966,
+            "name": "First Visit",
+            "slug": "first-visit",
+            "seo_name": "First Visit",
+            "errors": {}
+        },
+        "variations": [
+            {
+                "id": 9708373,
+                "deal_id": 230671,
+                "name": "The Ten Year | First Visit",
+                "sort_order": 0,
+                "created_at": "2018-04-10T23:53:21Z",
+                "price_varies": false,
+                "updated_at": "2018-04-10T23:53:21Z",
+                "description": null,
+                "add_on": false,
+                "external_id": null,
+                "duration": 45,
+                "errors": {},
+                "modifier_lookup_values": [],
+                "add_on_variations": [
+                    9710136,
+                    9710140
+                ],
+                "parent_variations": [],
+                "initial_consultation": null,
+                "followup": null
+            },
+            {
+                "id": 9708385,
+                "deal_id": 230671,
+                "name": "The Fifteen Year | First Visit",
+                "sort_order": 1,
+                "created_at": "2018-04-10T23:54:33Z",
+                "price_varies": false,
+                "updated_at": "2018-04-10T23:54:33Z",
+                "description": null,
+                "add_on": false,
+                "external_id": null,
+                "duration": 45,
+                "errors": {},
+                "modifier_lookup_values": [],
+                "add_on_variations": [
+                    9710136,
+                    9710140
+                ],
+                "parent_variations": [],
+                "initial_consultation": null,
+                "followup": null
+            },
+            {
+                "id": 9708397,
+                "deal_id": 230671,
+                "name": "The Twenty-Five Year | First Visit",
+                "sort_order": 2,
+                "created_at": "2018-04-10T23:55:34Z",
+                "price_varies": false,
+                "updated_at": "2018-04-10T23:55:48Z",
+                "description": null,
+                "add_on": false,
+                "external_id": null,
+                "duration": 60,
+                "errors": {},
+                "modifier_lookup_values": [],
+                "add_on_variations": [
+                    9710136,
+                    9710140
+                ],
+                "parent_variations": [],
+                "initial_consultation": null,
+                "followup": null
+            },
+            {
+                "id": 9708416,
+                "deal_id": 230671,
+                "name": "The Junior Cut",
+                "sort_order": 3,
+                "created_at": "2018-04-10T23:57:21Z",
+                "price_varies": true,
+                "updated_at": "2018-04-10T23:57:21Z",
+                "description": null,
+                "add_on": false,
+                "external_id": null,
+                "duration": 15,
+                "errors": {},
+                "modifier_lookup_values": [],
+                "add_on_variations": [
+                    9710136,
+                    9710140
+                ],
+                "parent_variations": [],
+                "initial_consultation": null,
+                "followup": null
+            }
+        ],
+        "is_addon": false,
+        "variations_count": 4
+    },
+    {
+        "id": 206791,
+        "sort_order": 12,
+        "paused": false,
+        "errors": {},
+        "service": {
+            "id": 7738,
+            "name": "Add-ons",
+            "slug": "add-ons",
+            "seo_name": "Add-ons",
+            "errors": {}
+        },
+        "variations": [
+            {
+                "id": 9710136,
+                "deal_id": 206791,
+                "name": "Eyebrow Wax",
+                "sort_order": 0,
+                "created_at": "2018-04-11T03:16:21Z",
+                "price_varies": false,
+                "updated_at": "2018-04-11T03:16:21Z",
+                "description": null,
+                "add_on": true,
+                "external_id": null,
+                "duration": 0,
+                "errors": {},
+                "modifier_lookup_values": [],
+                "add_on_variations": [],
+                "parent_variations": [
+                    9708373,
+                    9708385,
+                    9708397,
+                    9708416
+                ],
+                "initial_consultation": null,
+                "followup": null
+            },
+            {
+                "id": 9710140,
+                "deal_id": 206791,
+                "name": "Beard Trim",
+                "sort_order": 1,
+                "created_at": "2018-04-11T03:17:06Z",
+                "price_varies": false,
+                "updated_at": "2018-04-11T03:17:06Z",
+                "description": null,
+                "add_on": true,
+                "external_id": null,
+                "duration": 15,
+                "errors": {},
+                "modifier_lookup_values": [],
+                "add_on_variations": [],
+                "parent_variations": [
+                    9708373,
+                    9708385,
+                    9708397,
+                    9708416
+                ],
+                "initial_consultation": null,
+                "followup": null
+            }
+        ],
+        "is_addon": true,
+        "variations_count": 2
+    }
+]

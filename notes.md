@@ -19,4 +19,5 @@ CompanyId to use: 40426
 
 ## TODO
 
-[ ]get data from company and locations
+[ ]get data from company and locations and employees and test
+[ ] setup and test redux store
