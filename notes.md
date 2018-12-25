@@ -20,4 +20,7 @@ CompanyId to use: 40426
 ## TODO
 
 [ X ]get data from company and locations and employees and test
-[ ] setup front page
+[ X ] setup front page
+[ X ] setup details page for for filter by service.
+[ X ] details page filter by employee
+[ ] style and test details page

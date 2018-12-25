@@ -1,0 +1,211 @@
+[
+    {
+        "id": 5449392,
+        "variation_id": 209701,
+        "employee_id": 37109,
+        "new_min_price": 40,
+        "new_list_price": 40,
+        "existing_list_price": 40,
+        "existing_min_price": 40,
+        "promoting": null,
+        "errors": {}
+    },
+    {
+        "id": 5449396,
+        "variation_id": 536669,
+        "employee_id": 37109,
+        "new_min_price": 30,
+        "new_list_price": 30,
+        "existing_list_price": 30,
+        "existing_min_price": 30,
+        "promoting": false,
+        "errors": {}
+    },
+    {
+        "id": 5449400,
+        "variation_id": 677557,
+        "employee_id": 37109,
+        "new_min_price": 20,
+        "new_list_price": 20,
+        "existing_list_price": 20,
+        "existing_min_price": 20,
+        "promoting": false,
+        "errors": {}
+    },
+    {
+        "id": 5449404,
+        "variation_id": 779028,
+        "employee_id": 37109,
+        "new_min_price": 40,
+        "new_list_price": 40,
+        "existing_list_price": 40,
+        "existing_min_price": 40,
+        "promoting": false,
+        "errors": {}
+    },
+    {
+        "id": 5449408,
+        "variation_id": 794766,
+        "employee_id": 37109,
+        "new_min_price": 45,
+        "new_list_price": 45,
+        "existing_list_price": 45,
+        "existing_min_price": 45,
+        "promoting": false,
+        "errors": {}
+    },
+    {
+        "id": 5449412,
+        "variation_id": 886413,
+        "employee_id": 37109,
+        "new_min_price": 70,
+        "new_list_price": 70,
+        "existing_list_price": 70,
+        "existing_min_price": 70,
+        "promoting": false,
+        "errors": {}
+    },
+    {
+        "id": 5449416,
+        "variation_id": 886418,
+        "employee_id": 37109,
+        "new_min_price": 50,
+        "new_list_price": 50,
+        "existing_list_price": 50,
+        "existing_min_price": 50,
+        "promoting": false,
+        "errors": {}
+    },
+    {
+        "id": 5449420,
+        "variation_id": 1135250,
+        "employee_id": 37109,
+        "new_min_price": 120,
+        "new_list_price": 120,
+        "existing_list_price": 120,
+        "existing_min_price": 120,
+        "promoting": false,
+        "errors": {}
+    },
+    {
+        "id": 5449424,
+        "variation_id": 1264588,
+        "employee_id": 37109,
+        "new_min_price": 110,
+        "new_list_price": 110,
+        "existing_list_price": 110,
+        "existing_min_price": 110,
+        "promoting": false,
+        "errors": {}
+    },
+    {
+        "id": 5449428,
+        "variation_id": 1268425,
+        "employee_id": 37109,
+        "new_min_price": 20,
+        "new_list_price": 20,
+        "existing_list_price": 20,
+        "existing_min_price": 20,
+        "promoting": false,
+        "errors": {}
+    },
+    {
+        "id": 5449432,
+        "variation_id": 1422046,
+        "employee_id": 37109,
+        "new_min_price": 100,
+        "new_list_price": 100,
+        "existing_list_price": 100,
+        "existing_min_price": 100,
+        "promoting": false,
+        "errors": {}
+    },
+    {
+        "id": 5449436,
+        "variation_id": 1677821,
+        "employee_id": 37109,
+        "new_min_price": 1,
+        "new_list_price": 1,
+        "existing_list_price": 1,
+        "existing_min_price": 1,
+        "promoting": false,
+        "errors": {}
+    },
+    {
+        "id": 5449440,
+        "variation_id": 1763690,
+        "employee_id": 37109,
+        "new_min_price": 100,
+        "new_list_price": 100,
+        "existing_list_price": 100,
+        "existing_min_price": 100,
+        "promoting": null,
+        "errors": {}
+    },
+    {
+        "id": 5449444,
+        "variation_id": 1763691,
+        "employee_id": 37109,
+        "new_min_price": 45,
+        "new_list_price": 45,
+        "existing_list_price": 45,
+        "existing_min_price": 45,
+        "promoting": null,
+        "errors": {}
+    },
+    {
+        "id": 5449448,
+        "variation_id": 1763703,
+        "employee_id": 37109,
+        "new_min_price": 100,
+        "new_list_price": 100,
+        "existing_list_price": 100,
+        "existing_min_price": 100,
+        "promoting": null,
+        "errors": {}
+    },
+    {
+        "id": 5449452,
+        "variation_id": 1763709,
+        "employee_id": 37109,
+        "new_min_price": 60,
+        "new_list_price": 60,
+        "existing_list_price": 60,
+        "existing_min_price": 60,
+        "promoting": null,
+        "errors": {}
+    },
+    {
+        "id": 5449456,
+        "variation_id": 1763711,
+        "employee_id": 37109,
+        "new_min_price": 100,
+        "new_list_price": 100,
+        "existing_list_price": 100,
+        "existing_min_price": 100,
+        "promoting": null,
+        "errors": {}
+    },
+    {
+        "id": 5449460,
+        "variation_id": 1763712,
+        "employee_id": 37109,
+        "new_min_price": 100,
+        "new_list_price": 100,
+        "existing_list_price": 100,
+        "existing_min_price": 100,
+        "promoting": null,
+        "errors": {}
+    },
+    {
+        "id": 5449464,
+        "variation_id": 5949532,
+        "employee_id": 37109,
+        "new_min_price": 9,
+        "new_list_price": 10,
+        "existing_list_price": 10,
+        "existing_min_price": 9,
+        "promoting": true,
+        "errors": {}
+    }
+]

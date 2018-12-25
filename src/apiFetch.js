@@ -33,3 +33,13 @@ export async function fetchEmployees(companyId, locationId) {
     });
     return res.data.employees;
 }
+
+export async function fetchPricings(companyId, locationId) {
+    const url = `${API_URL}companies/${companyId}/pricings`;
+    const res = await axios.get(url, {
+        params: {
+            location_ids: locationId
+        }
+    });
+    return res.data.pricings;
+}

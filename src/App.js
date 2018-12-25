@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { Router } from '@reach/router';
 import ErrorMessage from './components/ErrorMessage';
 import { fetchCompany, fetchLocations } from './apiFetch';
 import Header from './components/Header';
 import { COMPANY_ID } from './defaults';
 import Spinner from './components/Spinner';
+import LocationsList from './components/LocationsList';
+import LocationDetails from './components/LocationDetails';
 
 const theme = {
     black: '#333',
     blue: '#2068a3',
     lightGray: '#f7f7f7',
+    darkGray: '#4f4f4f',
     maxWidth: '1300px',
-    bs: '0 1px 1px 0 #ccc;'
+    bs: '0 1px 1px 0 #ccc'
 };
 
 const GlobalStyle = createGlobalStyle`
@@ -50,6 +54,10 @@ class App extends Component {
         loadingData: false,
         error: null
     };
+    setLoading = ({ loadingData, error = null }) => {
+        this.setState({ loadingData, error });
+    };
+
     loadData = async () => {
         this.setState({ loadingData: true, error: null });
         try {
@@ -74,13 +82,28 @@ class App extends Component {
             <ThemeProvider theme={theme}>
                 <div>
                     <GlobalStyle />
-                    {error && <ErrorMessage error={error} />}
-                    {loadingData && <Spinner />}
-                    {company && <Header company={company} />}
+                    <StyledPage>
+                        {company && <Header company={company} />}
 
-                    <Inner>
-                        <StyledPage />
-                    </Inner>
+                        <Inner>
+                            {error && <ErrorMessage error={error} />}
+                            {loadingData && <Spinner />}
+                            {locations.length > 0 && (
+                                <Router>
+                                    <LocationsList
+                                        path="/"
+                                        locations={locations}
+                                    />
+                                    <LocationDetails
+                                        path="/:locId"
+                                        locations={locations}
+                                        setLoading={this.setLoading}
+                                        companyId={company ? company.id : null}
+                                    />
+                                </Router>
+                            )}
+                        </Inner>
+                    </StyledPage>
                 </div>
             </ThemeProvider>
         );
