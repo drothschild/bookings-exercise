@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { API_URL } from './defaults';
-var fs = require('fs');
 
 export async function fetchCompany(id) {
     const url = `${API_URL}companies/${id}`;

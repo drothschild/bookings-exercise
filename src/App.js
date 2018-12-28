@@ -7,7 +7,7 @@ import Header from './components/Header';
 import { COMPANY_ID } from './defaults';
 import Spinner from './components/Spinner';
 import LocationsList from './components/LocationsList';
-import LocationDetails from './components/LocationDetails';
+import LocationDetails from './components/LocationDetails/LocationDetails';
 
 const theme = {
     black: '#333',
@@ -30,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-size: 1.5rem;
-    line-height: 2;
+    line-height: 2em;
   }
   a {
     color: ${theme.blue};
@@ -61,8 +61,10 @@ class App extends Component {
     loadData = async () => {
         this.setState({ loadingData: true, error: null });
         try {
-            const company = await fetchCompany(COMPANY_ID);
-            const locations = await fetchLocations(COMPANY_ID);
+            const [company, locations] = await Promise.all([
+                fetchCompany(COMPANY_ID),
+                fetchLocations(COMPANY_ID)
+            ]);
             this.setState({
                 company,
                 locations,

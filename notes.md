@@ -24,3 +24,7 @@ CompanyId to use: 40426
 [ X ] setup details page for for filter by service.
 [ X ] details page filter by employee
 [ ] style and test details page
+
+##THings I ignored
+
+Omit add-ons

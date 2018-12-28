@@ -3,15 +3,16 @@ import {
     fetchCompany,
     fetchLocations,
     fetchDeals,
-    fetchEmployees
+    fetchEmployees,
+    fetchPricings
 } from '../apiFetch';
 import company from './dummy-data/companyDummy.json';
 import locations from './dummy-data/locationsDummy.json';
 import deals from './dummy-data/dealsDummy.json';
 import employees from './dummy-data/employeesDummy';
+import pricings from './dummy-data/pricingsDummy';
 
 it('fetches company Data from mytime', async () => {
-    // setup
     mockAxios.get.mockImplementationOnce(() =>
         Promise.resolve({
             data: { company }
@@ -27,7 +28,6 @@ it('fetches company Data from mytime', async () => {
 });
 
 it('fetches location Data from mytime', async () => {
-    // setup
     mockAxios.get.mockImplementationOnce(() =>
         Promise.resolve({
             data: { locations }
@@ -42,7 +42,6 @@ it('fetches location Data from mytime', async () => {
     jest.clearAllMocks();
 });
 it('fetches deals from mytime', async () => {
-    // setup
     mockAxios.get.mockImplementationOnce(() =>
         Promise.resolve({
             data: { deals }
@@ -73,6 +72,26 @@ it('fetches employees from mytime', async () => {
     expect(mockAxios.get).toHaveBeenCalledTimes(1);
     expect(mockAxios.get).toHaveBeenCalledWith(
         'https://www.mytime.com/api/mkp/v1/companies/1/employees',
+        {
+            params: {
+                location_ids: 1
+            }
+        }
+    );
+    jest.clearAllMocks();
+});
+it('fetches pricing from mytime', async () => {
+    // setup
+    mockAxios.get.mockImplementationOnce(() =>
+        Promise.resolve({
+            data: { pricings }
+        })
+    );
+    const receivedPricings = await fetchPricings(1, 1);
+    expect(receivedPricings).toEqual(pricings);
+    expect(mockAxios.get).toHaveBeenCalledTimes(1);
+    expect(mockAxios.get).toHaveBeenCalledWith(
+        'https://www.mytime.com/api/mkp/v1/companies/1/pricings',
         {
             params: {
                 location_ids: 1
