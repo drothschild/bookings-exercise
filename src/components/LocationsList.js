@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from '@reach/router';
-
 import { STATES } from '../defaults';
+import { Main } from './styles';
 
 const StateList = styled.ul`
     display: flex;
@@ -11,7 +11,7 @@ const StateList = styled.ul`
     list-style: none;
     width: 100%;
 `;
-const StateItem = styled.li`
+const StateItem = styled.div`
     display: flex;
     align-items: top;
     .state-name {
@@ -19,7 +19,7 @@ const StateItem = styled.li`
         font-size: 12px;
     }
 `;
-const LocationsForState = styled.ul`
+const LocationsForState = styled.div`
     display: flex;
     flex-direction: column;
     list-style: none;
@@ -58,30 +58,34 @@ export default function LocationsList({ locations }) {
     };
 
     return (
-        <StateList>
-            {states.map(state => {
-                return (
-                    <StateItem key={state}>
-                        <div className="state-name">{fullStateName(state)}</div>
-                        <LocationsForState>
-                            {locationsForState(state).map(loc => {
-                                const {
-                                    id,
-                                    city,
-                                    street_address,
-                                    zip_code
-                                } = loc;
-                                return (
-                                    <LocationItem key={id}>
-                                        <Link to={`/${id}`}>{city}</Link> -{' '}
-                                        {street_address} {zip_code}
-                                    </LocationItem>
-                                );
-                            })}
-                        </LocationsForState>
-                    </StateItem>
-                );
-            })}
-        </StateList>
+        <Main>
+            <StateList>
+                {states.map(state => {
+                    return (
+                        <StateItem key={state}>
+                            <div className="state-name">
+                                {fullStateName(state)}
+                            </div>
+                            <LocationsForState>
+                                {locationsForState(state).map(loc => {
+                                    const {
+                                        id,
+                                        city,
+                                        street_address,
+                                        zip_code
+                                    } = loc;
+                                    return (
+                                        <LocationItem key={id}>
+                                            <Link to={`/${id}`}>{city}</Link> -{' '}
+                                            {street_address} {zip_code}
+                                        </LocationItem>
+                                    );
+                                })}
+                            </LocationsForState>
+                        </StateItem>
+                    );
+                })}
+            </StateList>
+        </Main>
     );
 }

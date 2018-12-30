@@ -42,3 +42,25 @@ export async function fetchPricings(companyId, locationId) {
     });
     return res.data.pricings;
 }
+
+
+export async function fetchOpenTimes({
+    locationId,
+    variationId,
+    employeeId,
+    date
+}) {
+    const url = `${API_URL}open_times`;
+    const params = {
+        location_id: locationId,
+        is_existing_customer: false,
+        variation_ids: variationId,
+        date: date,
+        child_id: 1,
+        custom_field_id: 1,
+        custom_field_values: 1,
+        employee_id: employeeId
+    };
+    const res = await axios.get(url, { params });
+    return res.data.open_times;
+}

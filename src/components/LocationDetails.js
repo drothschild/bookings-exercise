@@ -1,58 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { fetchEmployees, fetchDeals, fetchPricings } from '../../apiFetch';
-import SidebarFilter from './EmployeeFilter';
+import { Link } from '@reach/router';
+import { fetchEmployees, fetchDeals, fetchPricings } from '../apiFetch';
 import ServicesFilter from './ServicesFilter';
 import EmployeeFilter from './EmployeeFilter';
-
-const Content = styled.div`
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-    min-height: 100%;
-    position: relative;
-    padding: 0;
-    margin: 0;
-    border: 0;
-`;
-const Sidebar = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-top: 2.5em;
-    padding: 0;
-    text-align: left;
-    min-width: 386px;
-    flex: 0 1 0%;
-    div {
-        margin: 0;
-        padding: 0;
-
-        border: 0;
-
-        font-size: 100%;
-
-        font: inherit;
-
-        vertical-align: baseline;
-    }
-`;
-
-const Section = styled.div`
-    max-width: 480px;
-    position: relative;
-    margin: 0px;
-    :not(:last-child)::after {
-        content: '';
-        position: absolute;
-        bottom: -12px;
-        height: 1px;
-        display: block;
-        background: rgba(0, 0, 0, 0.1);
-        margin: 12px 48px 0;
-        width: calc(100% - 2 * 48px);
-    }
-`;
+import Spinner from './Spinner';
+import { Main, BlueButton, Sidebar, Section } from './styles';
 
 const Title = styled.h4`
     color: #333;
@@ -62,16 +16,7 @@ const Title = styled.h4`
     text-transform: uppercase;
 `;
 
-const Main = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding: 14px 48px 48px;
-    flex: 1 1 auto;
-    background-color: #f7f7f7;
-`;
-
 const ServiceCategory = styled.div`
-    max-width: 480px;
     margin: 0;
 `;
 
@@ -80,9 +25,8 @@ const Variations = styled.div`
     padding: 12px;
     box-shadow: 0 0 4px 0 #ccc;
 `;
+
 const VariationItem = styled.div`
-    height: 100%;
-    width: 100%;
     flex-direction: row;
     display: flex;
     align-content: space-between;
@@ -128,23 +72,7 @@ const VariationDetails = styled.div`
     font-size: 14px;
 `;
 
-const BookButton = styled.button`
-    background-color: rgb(32, 104, 163);
-    color: rgb(255, 255, 255);
-    border: none;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-    border-radius: 4px;
-    cursor: pointer;
-    display: inline-block;
-    line-height: normal;
-    outline: none;
-    padding: 12px 24px;
-    font-size: 14px;
-    transition: all 0.18s ease-in-out;
-    ${props => (props.disabled ? `cursor : default;` : '')}
-`;
-
-const Location = styled.div`
+const Address = styled.div`
     p {
         color: black;
         font-size: 14px;
@@ -154,14 +82,8 @@ const Location = styled.div`
 
 export default class LocationDetails extends Component {
     state = {
-        employees: [],
-        deals: [],
-        pricings: [],
         serviceFilter: -1,
-        employeeFilter: -1,
-        location: this.props.locations.find(loc => {
-            return parseInt(loc.id) === parseInt(this.props.locId);
-        })
+        employeeFilter: -1
     };
     setServiceFilter = serviceFilter => {
         this.setState({ serviceFilter });
@@ -169,41 +91,34 @@ export default class LocationDetails extends Component {
     setEmployeeFilter = employeeFilter => {
         this.setState({ employeeFilter });
     };
-    loadData = async () => {
-        const { setLoading, companyId, locId } = this.props;
-        setLoading({ loadingData: true, error: null });
-        try {
-            const [employees, deals, pricings] = await Promise.all([
-                fetchEmployees(companyId, locId),
-                fetchDeals(companyId, locId),
-                fetchPricings(companyId, locId)
-            ]);
-            setLoading({
-                loadingData: false,
-                error: null
-            });
-            this.setState({
-                employees,
-                deals,
-                pricings
-            });
-        } catch (error) {
-            console.log(error);
-            setLoading({ error, loadingData: false });
-        }
-    };
     componentDidMount() {
-        this.loadData();
+        this.props.loadLocationData();
     }
-
     render() {
-        const {
-            employees,
-            deals,
-            pricings,
-            serviceFilter,
-            employeeFilter
-        } = this.state;
+        const { serviceFilter, employeeFilter } = this.state;
+        const { employees, deals, pricings, loadingData, loc: location } = this.props;
+
+        const isDisabledEmployee = employee => {
+            if (parseInt(serviceFilter) === -1) {
+                return false;
+            }
+            const id = employee.id;
+            const deal = deals.find(
+                deal => deal.id === parseInt(serviceFilter)
+            );
+            return (
+                deal.variations.filter(variation => {
+                    return (
+                        pricings.filter(pricing => {
+                            return (
+                                pricing.variation_id === variation.id &&
+                                pricing.employee_id === id
+                            );
+                        }).length > 0
+                    );
+                }).length === 0
+            );
+        };
 
         const filteredPricing = variation => {
             const pricing = pricings.find(pricing => {
@@ -216,14 +131,15 @@ export default class LocationDetails extends Component {
             if (!pricing) {
                 return 'Not Offered';
             }
-            if (!pricing.promoting) {
-                return `$${pricing.new_list_price.toFixed(2)}`;
-            } else {
+            if (pricing.new_list_price !== pricing.new_min_price) {
                 return `$${pricing.new_min_price.toFixed(
                     2
                 )} - $${pricing.new_list_price.toFixed(2)}`;
+            } else {
+                return `$${pricing.new_list_price.toFixed(2)}`;
             }
         };
+
         const isDisabledVariation = variation => {
             return (
                 parseInt(employeeFilter) !== -1 &&
@@ -242,32 +158,31 @@ export default class LocationDetails extends Component {
                 deal.id === parseInt(serviceFilter)
             );
         });
-
+    if (loadingData) {
+        return <Spinner />
+    }
         return (
-            <Content>
+            <>
                 <Sidebar>
-                    <div>
-                        <Section>
-                            <ServicesFilter
-                                employees={employees}
-                                deals={deals}
-                                pricings={pricings}
-                                serviceFilter={serviceFilter}
-                                employeeFilter={employeeFilter}
-                                setServiceFilter={this.setServiceFilter}
-                            />
-                        </Section>
-                        <Section>
-                            <EmployeeFilter
-                                employees={employees}
-                                deals={deals}
-                                pricings={pricings}
-                                serviceFilter={serviceFilter}
-                                employeeFilter={employeeFilter}
-                                setEmployeeFilter={this.setEmployeeFilter}
-                            />
-                        </Section>
-                    </div>
+                    <Section><Address><Title>Address</Title><p>{location.street_address}</p><p>{`${location.city}, ${location.state} ${location.zip_code}`}</p></Address></Section>
+                    <Section>
+                        <ServicesFilter
+                            employees={employees}
+                            deals={deals}
+                            pricings={pricings}
+                            serviceFilter={serviceFilter}
+                            employeeFilter={employeeFilter}
+                            setServiceFilter={this.setServiceFilter}
+                        />
+                    </Section>
+                    <Section>
+                        <EmployeeFilter
+                            employees={employees}
+                            employeeFilter={employeeFilter}
+                            isDisabledEmployee={isDisabledEmployee}
+                            setEmployeeFilter={this.setEmployeeFilter}
+                        />
+                    </Section>
                 </Sidebar>
                 <Main>
                     {servicesMenu.map(service => {
@@ -296,13 +211,21 @@ export default class LocationDetails extends Component {
                                                     </VariationDetails>
                                                 </div>
                                                 <div className="right-col" />
-                                                <BookButton
-                                                    disabled={isDisabledVariation(
-                                                        variation
-                                                    )}
+                                                <Link
+                                                    to={`/${
+                                                        this.props.locationId
+                                                    }/schedule/search?employee=${employeeFilter}&variation=${
+                                                        variation.id
+                                                    }`}
                                                 >
-                                                    Book
-                                                </BookButton>
+                                                    <BlueButton
+                                                        disabled={isDisabledVariation(
+                                                            variation
+                                                        )}
+                                                    >
+                                                        Book
+                                                    </BlueButton>
+                                                </Link>
                                             </VariationItem>
                                         );
                                     })}
@@ -311,7 +234,7 @@ export default class LocationDetails extends Component {
                         );
                     })}
                 </Main>
-            </Content>
+            </>
         );
     }
 }

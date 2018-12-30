@@ -23,8 +23,9 @@ CompanyId to use: 40426
 [ X ] setup front page
 [ X ] setup details page for for filter by service.
 [ X ] details page filter by employee
-[ ] style and test details page
+[ x ] style details page
+[ ] bookings page.
 
 ##THings I ignored
 
-Omit add-ons
+Omit add-ons. Bicycles(assume 1)
