@@ -1,3 +1,7 @@
+# Bookings Exercise
+
+A small app that uses MyTime's api to create a hair salon booking application. Note that the example does not allow you to actually book at the sample hair salon.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
