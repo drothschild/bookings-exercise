@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import queryString from 'query-string';
 import styled from 'styled-components';
 import Calendar from 'react-calendar';
 import { fetchOpenTimes } from '../apiFetch';
-import { Main, BlueButton, Sidebar, Section } from './styles';
+import {
+    Main,
+    BlueButton,
+    Sidebar,
+    Section,
+    SectionTitle,
+    ItemTitle,
+    MainTitle
+} from './styles';
 import Spinner from './Spinner';
 import ErrorMessage from './ErrorMessage';
-import EmployeeFilter from './EmployeeFilter'
+import EmployeeFilter from './EmployeeFilter';
 
 const OpenTimeList = styled.div`
     margin-top: 20px;
@@ -30,17 +39,9 @@ const OpenTimeItem = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 12px 0;
-    :after {
-        content: '';
-        z-index: 0;
-        height: 80px;
-        width: 100%;
-        position: absolute;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    }
+
     .left-col {
         flex: 1 1 100%;
-        box-sizing: border-box;
         flex-direction: column;
         display: flex;
         align-content: flex-start;
@@ -49,6 +50,15 @@ const OpenTimeItem = styled.div`
     }
     .right-col {
         align-self: center;
+
+    }
+    ::after {
+        content: '';
+        z-index: 0;
+        height: 80px;
+        width: 100%;
+        position: absolute;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
 `;
 const filterUnique = times => {
@@ -69,7 +79,7 @@ const formatPrice = time => {
     }
 };
 
-export default class Schedule extends Component {
+class Schedule extends Component {
     state = {
         date: new Date(),
         times: [],
@@ -82,10 +92,16 @@ export default class Schedule extends Component {
         }
         this.setState({ date }, this.loadData);
     };
+    handleClick = () => {
+        alert('Sorry, reservations have not yet been implemented.');
+    };
 
     loadData = async () => {
         const { locationId } = this.props;
-        const { employee: employeeId, variation: variationId } = queryString.parse(window.location.search);
+        const {
+            employee: employeeId,
+            variation: variationId
+        } = queryString.parse(window.location.search);
         const { date } = this.state;
         const params = {
             locationId,
@@ -95,7 +111,7 @@ export default class Schedule extends Component {
         if (employeeId > 0) {
             params.employeeId = employeeId;
         }
-        this.setState({ loadingData: true, error: null });
+        this.setState({ times: [], loadingData: true, error: null });
         try {
             const times = await fetchOpenTimes(params);
             this.setState({ times, loadingData: false, error: null });
@@ -113,13 +129,16 @@ export default class Schedule extends Component {
             `employee=${employee}`,
             `employee=${employeeId}`
         );
-        window.history.pushState('', '' , `${origin}${pathname}${replacedSearch}`)
+        window.history.pushState(
+            '',
+            '',
+            `${origin}${pathname}${replacedSearch}`
+        );
         this.loadData();
     };
 
-
     componentDidMount() {
-        const {loadLocationData, employees} = this.props
+        const { loadLocationData, employees } = this.props;
         this.loadData();
         if (employees.length === 0) {
             loadLocationData();
@@ -127,16 +146,19 @@ export default class Schedule extends Component {
     }
     render() {
         const { times, date, error, loadingData } = this.state;
-        const { employees, deals, pricings }= this.props;
+        const { employees, deals, pricings } = this.props;
+        const {
+            employee: employeeFilter,
+            variation: variationId
+        } = queryString.parse(window.location.search);
         const uniqueTimes = filterUnique(times);
-        const { employee: employeeFilter, variation: variationId } = queryString.parse(window.location.search);
         const isDisabledEmployee = employee => {
             const id = employee.id;
-            const deal = deals.find(
-     (deal => deal.variations.find(variation =>  parseInt(variationId)===variation.id
-                ))
+            const deal = deals.find(deal =>
+                deal.variations.find(
+                    variation => parseInt(variationId) === variation.id
+                )
             );
-
             return (
                 deal.variations.filter(variation => {
                     return (
@@ -149,41 +171,70 @@ export default class Schedule extends Component {
                     );
                 }).length === 0
             );
-        }
+        };
+        const employee = time => {
+            const { employee_id: employeeId } = time;
+            return employees.find(employee => employee.id === employeeId);
+        };
         return (
             <>
                 <Sidebar>
                     <Section>
+                        <SectionTitle>Appointment Date</SectionTitle>
                         <Calendar
+                            calendarType="US"
                             onChange={this.handleDateChange}
                             value={date}
                         />
                     </Section>
-                    <Section><EmployeeFilter employees={employees}employeeFilter={employeeFilter} isDisabledEmployee={isDisabledEmployee} setEmployeeFilter={this.setEmployeeFilter}/></Section>
+                    <Section>
+                        <EmployeeFilter
+                            employees={employees}
+                            employeeFilter={parseInt(employeeFilter)}
+                            isDisabledEmployee={isDisabledEmployee}
+                            setEmployeeFilter={this.setEmployeeFilter}
+                        />
+                    </Section>
                 </Sidebar>
                 <Main>
                     {error && <ErrorMessage error={error} />}
                     {loadingData && <Spinner />}
-                    {uniqueTimes.length ===0 && <div>No available times on this date</div>}
-                    {uniqueTimes.length > 0 && (
-                        <OpenTimeList>
-                            {uniqueTimes.map(time => (
-                                <OpenTimeItem key={time.begin_at}>
-                                    <div className="left-col">
-                                        <h5>
-                                            {moment(time.begin_at).format('LT')}
-                                        </h5>
-                                        <div>{formatPrice(time)}</div>
-                                    </div>
-                                    <div className="right-col">
-                                        <BlueButton>Reserve</BlueButton>
-                                    </div>
-                                </OpenTimeItem>
-                            ))}
-                        </OpenTimeList>
+                    {uniqueTimes.length === 0 && !loadingData && (
+                        <MainTitle>No available times on this date</MainTitle>
+                    )}
+                    {uniqueTimes.length > 0 && employees.length > 0 && (
+                        <>
+                            <MainTitle>Pick a Time</MainTitle>
+                            <OpenTimeList>
+                                {uniqueTimes.map(time => (
+                                    <OpenTimeItem key={time.begin_at}>
+                                        <div className="left-col">
+                                            <ItemTitle>
+                                                {moment(time.begin_at).format(
+                                                    'LT'
+                                                )}{' '}
+                                                | {employee(time).name}
+                                            </ItemTitle>
+                                            <div>{formatPrice(time)}</div>
+                                        </div>
+                                        <div className="right-col" />
+                                        <BlueButton onClick={this.handleClick}>
+                                            Reserve
+                                        </BlueButton>
+                                    </OpenTimeItem>
+                                ))}
+                            </OpenTimeList>
+                        </>
                     )}
                 </Main>
             </>
         );
     }
 }
+
+Schedule.propTypes = {
+    employees: PropTypes.array,
+    deals: PropTypes.array,
+    pricings: PropTypes.array
+};
+export default Schedule;

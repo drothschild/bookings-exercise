@@ -2,19 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from '@reach/router';
-import { fetchEmployees, fetchDeals, fetchPricings } from '../apiFetch';
 import ServicesFilter from './ServicesFilter';
 import EmployeeFilter from './EmployeeFilter';
 import Spinner from './Spinner';
-import { Main, BlueButton, Sidebar, Section } from './styles';
-
-const Title = styled.h4`
-    color: #333;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.92px;
-    text-transform: uppercase;
-`;
+import {
+    Main,
+    BlueButton,
+    Sidebar,
+    Section,
+    ItemTitle,
+    SectionTitle
+} from './styles';
 
 const ServiceCategory = styled.div`
     margin: 0;
@@ -33,7 +31,6 @@ const VariationItem = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 12px 0;
-    padding-top: 12px;
     overflow: hidden;
     :first-child {
         padding-top: 0;
@@ -43,7 +40,6 @@ const VariationItem = styled.div`
     }
     .left-col {
         flex: 1 1 100%;
-        box-sizing: border-box;
         flex-direction: column;
         display: flex;
         align-content: flex-start;
@@ -54,15 +50,6 @@ const VariationItem = styled.div`
         align-self: baseline;
     }
     ${props => (props.disabled ? `opacity: .3;` : '')}
-`;
-
-const VariationTitle = styled.h5`
-    font-size: 16px;
-    line-height: 24px;
-    max-width: 400px;
-    margin: 0;
-    padding: 0;
-    border: 0;
 `;
 
 const VariationDetails = styled.div`
@@ -77,10 +64,11 @@ const Address = styled.div`
         color: black;
         font-size: 14px;
         letter-spacing: 0.21px;
+        margin: 0;
     }
 `;
 
-export default class LocationDetails extends Component {
+class LocationDetails extends Component {
     state = {
         serviceFilter: -1,
         employeeFilter: -1
@@ -96,8 +84,17 @@ export default class LocationDetails extends Component {
     }
     render() {
         const { serviceFilter, employeeFilter } = this.state;
-        const { employees, deals, pricings, loadingData, loc: location } = this.props;
-
+        const {
+            employees,
+            deals,
+            pricings,
+            loadingData,
+            locations,
+            locationId
+        } = this.props;
+        const location = locations.find(loc => {
+            return loc.id === parseInt(locationId);
+        });
         const isDisabledEmployee = employee => {
             if (parseInt(serviceFilter) === -1) {
                 return false;
@@ -119,7 +116,7 @@ export default class LocationDetails extends Component {
                 }).length === 0
             );
         };
-
+        const services = deals.filter(deal => !deal.is_addon);
         const filteredPricing = variation => {
             const pricing = pricings.find(pricing => {
                 return (
@@ -131,7 +128,10 @@ export default class LocationDetails extends Component {
             if (!pricing) {
                 return 'Not Offered';
             }
-            if (pricing.new_list_price !== pricing.new_min_price) {
+            if (
+                pricing.new_min_price &&
+                pricing.new_list_price !== pricing.new_min_price
+            ) {
                 return `$${pricing.new_min_price.toFixed(
                     2
                 )} - $${pricing.new_list_price.toFixed(2)}`;
@@ -152,33 +152,41 @@ export default class LocationDetails extends Component {
             );
         };
 
-        const servicesMenu = deals.filter(deal => {
+        const servicesMenu = services.filter(deal => {
             return (
                 parseInt(serviceFilter) === -1 ||
                 deal.id === parseInt(serviceFilter)
             );
         });
-    if (loadingData) {
-        return <Spinner />
-    }
+        if (loadingData) {
+            return <Spinner />;
+        }
         return (
             <>
                 <Sidebar>
-                    <Section><Address><Title>Address</Title><p>{location.street_address}</p><p>{`${location.city}, ${location.state} ${location.zip_code}`}</p></Address></Section>
+                    <Section>
+                        <Address>
+                            <SectionTitle>Address</SectionTitle>
+                            <p>{location.street_address}</p>
+                            <p>{`${location.city}, ${location.state} ${
+                                location.zip_code
+                            }`}</p>
+                        </Address>
+                    </Section>
                     <Section>
                         <ServicesFilter
                             employees={employees}
-                            deals={deals}
+                            services={services}
                             pricings={pricings}
-                            serviceFilter={serviceFilter}
-                            employeeFilter={employeeFilter}
+                            serviceFilter={parseInt(serviceFilter)}
+                            employeeFilter={parseInt(employeeFilter)}
                             setServiceFilter={this.setServiceFilter}
                         />
                     </Section>
                     <Section>
                         <EmployeeFilter
                             employees={employees}
-                            employeeFilter={employeeFilter}
+                            employeeFilter={parseInt(employeeFilter)}
                             isDisabledEmployee={isDisabledEmployee}
                             setEmployeeFilter={this.setEmployeeFilter}
                         />
@@ -188,7 +196,9 @@ export default class LocationDetails extends Component {
                     {servicesMenu.map(service => {
                         return (
                             <ServiceCategory key={service.id}>
-                                <Title>{service.service.name}</Title>
+                                <SectionTitle>
+                                    {service.service.name}
+                                </SectionTitle>
                                 <Variations>
                                     {service.variations.map(variation => {
                                         return (
@@ -199,9 +209,9 @@ export default class LocationDetails extends Component {
                                                 )}
                                             >
                                                 <div className="left-col">
-                                                    <VariationTitle>
+                                                    <ItemTitle>
                                                         {variation.name}
-                                                    </VariationTitle>
+                                                    </ItemTitle>
                                                     <VariationDetails>
                                                         {variation.duration}{' '}
                                                         minutes |{' '}
@@ -238,3 +248,14 @@ export default class LocationDetails extends Component {
         );
     }
 }
+
+LocationDetails.propTypes = {
+    employees: PropTypes.array,
+    deals: PropTypes.array,
+    pricings: PropTypes.array,
+    loadingData: PropTypes.bool,
+    locations: PropTypes.array,
+    locationId: PropTypes.string,
+    loadLocationData: PropTypes.func.isRequired
+};
+export default LocationDetails;

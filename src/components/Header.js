@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -8,7 +8,6 @@ const HeaderDiv = styled.div`
     height: 80px;
     top: 0;
     width: 100%;
-    z-index: 10;
 `;
 
 const HeaderContainer = styled.div`
@@ -18,8 +17,6 @@ const HeaderContainer = styled.div`
     align-items: center;
     color: ${props => props.theme.darkGrey};
     position: relative;
-    box-shadow: ${props => props.theme.bs};
-    z-index: 1;
 `;
 
 const HeaderCompany = styled.div`
@@ -52,27 +49,24 @@ const CompanyDetails = styled.div`
     }
 `;
 
-export default class Header extends Component {
-    static propTypes = {
-        company: PropTypes.object
-    };
-    render() {
-        const { company } = this.props;
-        const { marketing_logo: logo = null } = company;
-        return (
-            <HeaderDiv>
-                <HeaderContainer>
-                    <HeaderCompany>
-                        <CompanyDetails>
-                            <img
-                                src={logo.original}
-                                alt={`${company.name} logo`}
-                            />
-                            <h1>{company.name}</h1>
-                        </CompanyDetails>
-                    </HeaderCompany>
-                </HeaderContainer>
-            </HeaderDiv>
-        );
-    }
-}
+const Header = ({ company }) => {
+    const { marketing_logo: logo = null } = company;
+    return (
+        <HeaderDiv>
+            <HeaderContainer>
+                <HeaderCompany>
+                    <CompanyDetails>
+                        <img src={logo.original} alt={`${company.name} logo`} />
+                        <h1>{company.name}</h1>
+                    </CompanyDetails>
+                </HeaderCompany>
+            </HeaderContainer>
+        </HeaderDiv>
+    );
+};
+
+Header.propTypes = {
+    company: PropTypes.object
+};
+
+export default Header;

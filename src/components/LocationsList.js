@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from '@reach/router';
 import { STATES } from '../defaults';
-import { Main } from './styles';
+import { Main, MainTitle } from './styles';
 
-const StateList = styled.ul`
+const StateList = styled.div`
     display: flex;
     flex-direction: column;
-    list-style: none;
     width: 100%;
 `;
 const StateItem = styled.div`
@@ -17,25 +16,32 @@ const StateItem = styled.div`
     .state-name {
         text-transform: uppercase;
         font-size: 12px;
+        width: 10%;
+        margin: 0;
+        white-space: nowrap;
     }
 `;
 const LocationsForState = styled.div`
     display: flex;
     flex-direction: column;
-    list-style: none;
-    width: 70%;
+    flex: 1 1 auto;
 `;
 
 const LocationItem = styled.li`
     display: flex;
     .city-name {
+        font-size: 14px;
+        font-style: bold;
+        text-decoration: none;
         color: ${props => props.theme.blue};
+        width: 30%;
+        font-weight: 400;
     }
     .address {
     }
 `;
 
-export default function LocationsList({ locations }) {
+const LocationsList = ({ locations }) => {
     const states = locations
         .map(location => {
             return location.state;
@@ -53,19 +59,21 @@ export default function LocationsList({ locations }) {
                 return location.state === state;
             })
             .sort((a, b) => {
-                return a.zip > b.zip;
+                return a.zip_code - b.zip_code;
             });
     };
 
     return (
         <Main>
+            <MainTitle>Pick a location</MainTitle>
             <StateList>
                 {states.map(state => {
                     return (
                         <StateItem key={state}>
-                            <div className="state-name">
+                            <h3 className="state-name">
                                 {fullStateName(state)}
-                            </div>
+                            </h3>
+
                             <LocationsForState>
                                 {locationsForState(state).map(loc => {
                                     const {
@@ -76,8 +84,15 @@ export default function LocationsList({ locations }) {
                                     } = loc;
                                     return (
                                         <LocationItem key={id}>
-                                            <Link to={`/${id}`}>{city}</Link> -{' '}
-                                            {street_address} {zip_code}
+                                            <div className="city-name">
+                                                {' '}
+                                                <Link to={`/${id}`}>
+                                                    {city}
+                                                </Link>
+                                            </div>{' '}
+                                            <div>
+                                                {street_address} {zip_code}
+                                            </div>
                                         </LocationItem>
                                     );
                                 })}
@@ -88,4 +103,10 @@ export default function LocationsList({ locations }) {
             </StateList>
         </Main>
     );
-}
+};
+
+LocationsList.propTypes = {
+    location: PropTypes.array
+};
+
+export default LocationsList;

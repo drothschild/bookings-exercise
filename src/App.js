@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { Router } from '@reach/router';
 import ErrorMessage from './components/ErrorMessage';
-import { fetchCompany, fetchLocations, fetchEmployees, fetchDeals, fetchPricings } from './apiFetch';
+import {
+    fetchCompany,
+    fetchLocations,
+    fetchEmployees,
+    fetchDeals,
+    fetchPricings
+} from './apiFetch';
 import Header from './components/Header';
 import { COMPANY_ID } from './defaults';
 import Spinner from './components/Spinner';
@@ -11,6 +17,7 @@ import LocationDetails from './components/LocationDetails';
 import Schedule from './components/Schedule';
 
 const theme = {
+    white: 'rgb(255,255,255)',
     black: '#333',
     blue: '#2068a3',
     lightGray: '#f7f7f7',
@@ -51,9 +58,6 @@ const Content = styled.div`
         border: 0;
     }
 `;
-const path = window.location.pathname;
-const locationId = path.length > 1 ? path.match(/\/(\d+)/)[1] : -1;
-
 class App extends Component {
     state = {
         company: null,
@@ -91,13 +95,15 @@ class App extends Component {
 
     loadLocationData = async () => {
         const { companyId } = this.state;
-        if (locationId === -1) {
-            this.setState({ employees: [], deals: [], pricings: []});
-            return;
-        }
-    this.setState({loadingLocationData: true, error: null})
+        const path = window.location.pathname;
+        const locationId = path.length > 1 ? path.match(/\/(\d+)/)[1] : -1;
+        this.setState({ loadingLocationData: true, error: null });
         try {
-            const [employees, deals, pricings] = await Promise.all([fetchEmployees(companyId, locationId), fetchDeals(companyId, locationId), fetchPricings(companyId, locationId )]);
+            const [employees, deals, pricings] = await Promise.all([
+                fetchEmployees(companyId, locationId),
+                fetchDeals(companyId, locationId),
+                fetchPricings(companyId, locationId)
+            ]);
             this.setState({
                 employees,
                 deals,
@@ -106,7 +112,13 @@ class App extends Component {
                 loadingLocationData: false
             });
         } catch (error) {
-            this.setState({ employees: [], deals: [], pricings: [], error,loadingLocationData: false });
+            this.setState({
+                employees: [],
+                deals: [],
+                pricings: [],
+                error,
+                loadingLocationData: false
+            });
         }
     };
     componentDidMount() {
@@ -121,12 +133,8 @@ class App extends Component {
             employees,
             pricings,
             deals,
-loadingLocationData
-
+            loadingLocationData
         } = this.state;
-        const location = locations.find(loc => {
-            return loc.id === parseInt(locationId);
-        });
         return (
             <ThemeProvider theme={theme}>
                 <div>
@@ -145,22 +153,20 @@ loadingLocationData
                                     />
                                     <LocationDetails
                                         path="/:locationId"
-
-                                        loc={location}
                                         deals={deals}
                                         pricings={pricings}
                                         employees={employees}
+                                        locations={locations}
                                         loadLocationData={this.loadLocationData}
                                         loadingData={loadingLocationData}
                                         companyId={COMPANY_ID}
                                     />
                                     <Schedule
                                         path="/:locationId/schedule/:search"
-                                        loc={location}
                                         deals={deals}
                                         employees={employees}
-                                        pricings={pricings}             loadLocationData={this.loadLocationData}
-
+                                        pricings={pricings}
+                                        loadLocationData={this.loadLocationData}
                                     />
                                 </Router>
                             )}

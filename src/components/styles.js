@@ -9,7 +9,7 @@ export const Main = styled.div`
 `;
 
 export const BlueButton = styled.button`
-    background-color: rgb(32, 104, 163);
+    background-color: ${props => props.theme.blue};
     color: rgb(255, 255, 255);
     border: none;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
@@ -18,8 +18,9 @@ export const BlueButton = styled.button`
     display: inline-block;
     line-height: normal;
     outline: none;
+    z-index: 100;
+    font-size: 1em;
     padding: 12px 24px;
-    font-size: 14px;
     transition: all 0.18s ease-in-out;
     ${props => (props.disabled ? `cursor : default;` : '')}
 `;
@@ -33,19 +34,76 @@ export const Sidebar = styled.div`
     min-width: 386px;
     max-width: 480px;
     flex-shrink: 0;
-    :not(:last-child)::after {
+`;
+
+export const Section = styled.div`
+    position: relative;
+    margin: 0px;
+    padding: 0px 0px 0px 48px;
+    :not(:last-child):after {
         content: '';
         position: absolute;
         bottom: -12px;
         height: 1px;
         display: block;
         background: rgba(0, 0, 0, 0.1);
-        margin: 12px 48px 0;
-        width: calc(100% - 2 * 48px);
+        margin: 48px 0px 0px 0px;
+        width: calc(100% - 48px);
     }
 `;
 
-export const Section = styled.div`
-    position: relative;
-    margin: 0px;
+export const MainTitle = styled.h2`
+    font-size: 2em;
+`;
+
+export const SectionTitle = styled.h4`
+    color: ${props => props.theme.black};
+    font-weight: 700;
+    text-transform: uppercase;
+`;
+
+export const ItemTitle = styled.h5`
+    text-transform: capitalize;
+    line-height: 2.5em;
+    max-width: 400px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+`;
+
+export const SelectMenu = styled.fieldset`
+    border-width: 0;
+    padding: 0;
+    input {
+        display: none;
+        :checked + label,
+        :hover + label {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        :disabled + label {
+            cursor: default;
+            opacity: 0.3;
+            :hover {
+                background-color: inherit;
+            }
+        }
+    }
+    label {
+        border-width: 0;
+        padding: 0;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        text-transform: capitalize;
+        width: 100%;
+
+        .option {
+            color: ${props => props.theme.blue};
+        }
+        .details {
+            color: ${props => props.theme.darkGray};
+        }
+    }
 `;

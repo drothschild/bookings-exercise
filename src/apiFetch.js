@@ -43,7 +43,6 @@ export async function fetchPricings(companyId, locationId) {
     return res.data.pricings;
 }
 
-
 export async function fetchOpenTimes({
     locationId,
     variationId,
@@ -61,6 +60,13 @@ export async function fetchOpenTimes({
         custom_field_values: 1,
         employee_id: employeeId
     };
-    const res = await axios.get(url, { params });
-    return res.data.open_times;
+    try {
+        const res = await axios.get(url, { params });
+        return res.data.open_times;
+    } catch (error) {
+        if (error.response.status === 422) {
+            return [];
+        }
+        throw error;
+    }
 }
